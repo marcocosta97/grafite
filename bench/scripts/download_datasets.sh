@@ -1,10 +1,15 @@
-#! /bin/bash
+#!/bin/sh
 
 # Script adapted from https://github.com/BigDataAnalyticsGroup/analysis-rmi/blob/main/scripts/download_data.sh.
 
 trap "exit" SIGINT
 
-DIR_DATA="real_datasets
+if ((BASH_VERSINFO[0] < 4)); then
+    echo "Bash version >= 4 required for associative arrays."
+    exit 1
+fi
+
+DIR_DATA="real_datasets"
 
 # Set download urls
 declare -A urls
