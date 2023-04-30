@@ -22,18 +22,18 @@ if [ "$#" -ne 2 ]; then
     echo "Illegal number of parameters, usage: generate_datasets.sh <grafite_build_path> <real_datasets_path>"
 fi
 
-GRAFITE_BUILD_PATH=$(realpath "$1")
+GRAFITE_BUILD_PATH=$(realpath $1)
 if [ ! -d "$GRAFITE_BUILD_PATH" ]; then
   echo "Grafite build path does not exist"
   exit 1
 fi
-REAL_DATASETS_PATH=$(realpath "$2")
+REAL_DATASETS_PATH=$(realpath $2)
 if [ ! -d "$REAL_DATASETS_PATH" ]; then
   echo "Real datasets path does not exist"
   exit 1
 fi
 
-WORKLOAD_GEN_PATH=$(realpath "$GRAFITE_BUILD_PATH"/bench/workload_gen)
+WORKLOAD_GEN_PATH=$(realpath $GRAFITE_BUILD_PATH/bench/workload_gen)
 if [ ! -f "$WORKLOAD_GEN_PATH" ]; then
   echo "Workload generator does not exist"
   exit 1
@@ -84,7 +84,7 @@ if ! $WORKLOAD_GEN_PATH --mixed ; then
 fi
 echo "[!!] fpr_test (figure 3) dataset generated"
 mkdir -p ../fpr_real_test && cd ../fpr_real_test || exit 1
-if ! $WORKLOAD_GEN_PATH --mixed --binary-keys "$REAL_DATASETS_PATH"/books_200M_uint64 "$REAL_DATASETS_PATH"/fb_200M_uint64 "$REAL_DATASETS_PATH"/osm_cellids_200M_uint64 ; then
+if ! $WORKLOAD_GEN_PATH --mixed --binary-keys $REAL_DATASETS_PATH/books_200M_uint64 $REAL_DATASETS_PATH/fb_200M_uint64 $REAL_DATASETS_PATH/osm_cellids_200M_uint64 ; then
   echo "[!!] fpr_real_test generation failed"
   exit 1
 fi
