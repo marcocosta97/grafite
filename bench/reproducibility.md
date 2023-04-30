@@ -18,6 +18,9 @@ The following software is required to reproduce the experiments of the paper:
   - Pandas 1.0.3 (or later)
 - Bash 4.4 (or later)
   - realpath 8.28 (or later)
+  - wget 1.19.4 (or later)
+  - zsdt 0.0.1 (or later)
+  - md5sum 8.28 (or later)
 
 We advise to use a Linux machine with at least 32GB of RAM.
 
