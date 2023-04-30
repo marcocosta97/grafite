@@ -1,0 +1,2 @@
+language = "cpp"
+run = "bash -c 'PS3=\"Choose an example to run: \"; select path in examples/*.cpp; do g++ $path -std=c++17 -I include -I lib/sux -DSUCCINCT_LIB_SUX -o out && ./out; break; done'"
