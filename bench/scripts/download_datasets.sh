@@ -1,4 +1,4 @@
-#!/bin/sh
+#!bash
 
 # Script adapted from https://github.com/BigDataAnalyticsGroup/analysis-rmi/blob/main/scripts/download_data.sh.
 
