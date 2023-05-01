@@ -44,14 +44,14 @@ mkdir ../../paper_results && cd ../../paper_results
 
 Then, download the `books_200M_uint64, fb_200M_uint64` and `osm_cellids_200M_uint64` datasets (they will be placed in the `real_datasets` subfolder) and generate the workloads:
 ```bash
-sh ../grafite/bench/scripts/download_datasets.sh
-sh ../grafite/bench/scripts/generate_datasets.sh ../grafite/build real_datasets
+bash ../grafite/bench/scripts/download_datasets.sh
+bash ../grafite/bench/scripts/generate_datasets.sh ../grafite/build real_datasets
 ```
 The generated workloads will be in the `workloads` subfolder.
 ## Running the experiments
 Now you can execute the tests:
 ```bash
-sh ../grafite/bench/scripts/execute_tests.sh ../grafite/build workloads
+bash ../grafite/bench/scripts/execute_tests.sh ../grafite/build workloads
 ```
 The results will be in the `results` subfolder.
 
