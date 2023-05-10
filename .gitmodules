@@ -13,3 +13,6 @@
 [submodule "bench/include/SNARF"]
 	path = bench/include/SNARF
 	url = https://github.com/kapilvaidya24/SNARF
+[submodule "bench/include/REncoder"]
+	path = bench/include/REncoder
+	url = https://github.com/Range-Filter/REncoder
