@@ -12,8 +12,8 @@ FetchContent_MakeAvailable(argparse)
 set(CMAKE_CXX_STANDARD 17)
 # include_directories(SYSTEM ./include)
 
-list(APPEND Targets "grafite" "surf" "rosetta" "proteus" "snarf" "bucketing")
-list(APPEND x86Targets "surf" "rosetta" "proteus")
+list(APPEND Targets "grafite" "surf" "rosetta" "proteus" "snarf" "rencoder" "bucketing")
+list(APPEND x86Targets "surf" "rosetta" "proteus" "rencoder")
 
 function(compile_bench ds)
     if (NOT ds IN_LIST Targets)
