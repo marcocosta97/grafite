@@ -1,2 +1,4 @@
 add_executable(example simple.cpp)
+add_executable(serialization serialization.cpp)
 target_link_libraries(example grafitelib)
+target_link_libraries(serialization grafitelib)

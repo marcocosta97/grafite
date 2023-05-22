@@ -114,6 +114,18 @@ public:
         return ef.predecessor(i);
     }
 
+    friend std::ostream &operator<<(std::ostream &out, const ef_sux_vector &v)
+    {
+        out << v.ef;
+        return out;
+    }
+
+    friend std::istream &operator>>(std::istream &in, ef_sux_vector &v)
+    {
+        in >> v.ef;
+        return in;
+    }
+
     [[nodiscard]] uint64_t size() const
     {
         return ef.bitCount() / 8;
@@ -175,6 +187,34 @@ public:
     {
         return sdsl::size_in_bytes(ef) + sdsl::size_in_bytes(ef_rank); //+ sdsl::size_in_bytes(ef_select);
     }
+
+    friend std::ostream &operator<<(std::ostream &out, const ef_sdsl_vector &v)
+    {
+        v.ef.serialize(out);
+        v.ef_rank.serialize(out);
+        return out;
+    }
+
+    friend std::istream &operator>>(std::istream &in, ef_sdsl_vector &v)
+    {
+        v.ef.load(in);
+        v.ef_rank.load(in);
+        v.ef_rank.set_vector(&v.ef);
+        return in;
+    }
+
+//    void serialize(std::ostream &out) const
+//    {
+//        ef.serialize(out);
+//        ef_rank.serialize(out);
+//    }
+//
+//    void deserialize(std::istream &in)
+//    {
+//        ef.load(in);
+//        ef_rank.load(in);
+//        ef_rank.set_vector(&ef);
+//    }
 };
 #endif
 
@@ -477,6 +517,9 @@ private:
     }
 
 public:
+
+    filter() = default;
+
     /**
      * @brief This constructor allows to specify the false positive rate 'eps' desired for the range queries of size 'L'.
      * The size of the reduced universe r is calculated as r = (n * L)/eps, where 'n' is the number of elements in the input
@@ -627,6 +670,61 @@ public:
         return sizeof(filter) + ds.size();
     }
 
+    /**
+     * @brief Serializes the Grafite range filter to a stream.
+     *
+     * @param out the output stream
+     */
+//    void serialize(std::ostream &out) const
+//    {
+//        out.write((char *) &first, sizeof(first));
+//        out.write((char *) &last, sizeof(last));
+//        out.write((char *) &n_items, sizeof(n_items));
+//        out.write((char *) &a, sizeof(a));
+//        out.write((char *) &b, sizeof(b));
+//        out.write((char *) &r, sizeof(r));
+//        ds.serialize(out);
+//    }
+
+    friend std::ostream &operator<<(std::ostream &out, const filter &rf)
+    {
+        out.write(reinterpret_cast<const char *>(&rf.first), sizeof(rf.first));
+        out.write(reinterpret_cast<const char *>(&rf.last), sizeof(rf.last));
+        out.write(reinterpret_cast<const char *>(&rf.n_items), sizeof(rf.n_items));
+        out.write(reinterpret_cast<const char *>(&rf.a), sizeof(rf.a));
+        out.write(reinterpret_cast<const char *>(&rf.b), sizeof(rf.b));
+        out.write(reinterpret_cast<const char *>(&rf.r), sizeof(rf.r));
+        out << rf.ds;
+        return out;
+    }
+
+    friend std::istream &operator>>(std::istream &in, filter &rf)
+    {
+        in.read(reinterpret_cast<char *>(&rf.first), sizeof(rf.first));
+        in.read(reinterpret_cast<char *>(&rf.last), sizeof(rf.last));
+        in.read(reinterpret_cast<char *>(&rf.n_items), sizeof(rf.n_items));
+        in.read(reinterpret_cast<char *>(&rf.a), sizeof(rf.a));
+        in.read(reinterpret_cast<char *>(&rf.b), sizeof(rf.b));
+        in.read(reinterpret_cast<char *>(&rf.r), sizeof(rf.r));
+        in >> rf.ds;
+        return in;
+    }
+
+//    /**
+//     * @brief Deserializes the Grafite range filter from a stream.
+//     *
+//     * @param in the input stream
+//     */
+//    void deserialize(std::istream &in)
+//    {
+//        in.read((char *) &first, sizeof(first));
+//        in.read((char *) &last, sizeof(last));
+//        in.read((char *) &n_items, sizeof(n_items));
+//        in.read((char *) &a, sizeof(a));
+//        in.read((char *) &b, sizeof(b));
+//        in.read((char *) &r, sizeof(r));
+//        ds.deserialize(in);
+//    }
 };
 
 template <class RangeEmptinessContainer, unsigned int default_bpk_overhead>
