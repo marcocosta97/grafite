@@ -29,8 +29,8 @@ use_numa = False
 membind = 0
 physcpubind = 16
 
-ds_list = ["grafite", "surf", "rosetta", "snarf", "proteus"]
-ds_list_with_bucketing = ["grafite", "surf", "snarf", "proteus", "rosetta", "bucketing"]
+ds_list = ["grafite", "surf", "rosetta", "snarf", "proteus", 'rencoder']
+ds_list_with_bucketing = ["grafite", "surf", "snarf", "proteus", "rosetta", 'rencoder', "bucketing"]
 
 ds_benchmark_executables = {}
 
@@ -39,14 +39,16 @@ ds_parameters = {'grafite': list(np.linspace(8, 28, 6)),  # eps
                  'snarf': list(np.linspace(8, 28, 6)),  # bpk
                  'rosetta': list(np.linspace(8, 28, 6)),  # bpk
                  'proteus': list(np.linspace(8, 28, 6)),
-                 'bucketing': list(np.linspace(8, 28, 6))}  # bpk
+                 'bucketing': list(np.linspace(8, 28, 6)),
+                 'rencoder': list(np.linspace(8, 28, 6))}  # bpk
 
 ds_parameters_small_universe = {'grafite': list(np.linspace(7, 12, 6)),  # eps
                                 'surf': [0, 1, 2, 3, 4, 5],  # suffix bits
                                 'snarf': list(np.linspace(7, 12, 6)),  # bpk
                                 'rosetta': list(np.linspace(7, 12, 6)),  # bpk
                                 'proteus': list(np.linspace(7, 12, 6)),
-                                'bucketing': list(np.linspace(7, 12, 6))}  # bpk
+                                'bucketing': list(np.linspace(7, 12, 6)),
+                                'rencoder': list(np.linspace(7, 12, 6))}  # bpk
 
 
 # Format of the test directories for bulk testing
@@ -212,7 +214,8 @@ if __name__ == "__main__":
                          'surf': [10],  # suffix bits
                          'snarf': [20],  # bpk
                          'rosetta': [20],  # bpk
-                         'proteus': [20]}  # bpk
+                         'proteus': [20],
+                         'rencoder': [20]}  # bpk
 
     benchmarks_dir = Path(f'{args.grafite_dir}/bench/')
 
