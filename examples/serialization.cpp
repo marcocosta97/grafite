@@ -29,7 +29,7 @@ int main()
 
     // Construct the Grafite range filter
     auto bpk = 12.0;
-    auto g = grafite::filter<grafite::ef_sux_vector>(keys.begin(), keys.end(), bpk);
+    auto g = grafite::filter<grafite::ef_sdsl_vector>(keys.begin(), keys.end(), bpk);
 
     // Query the Grafite range filter
     auto left = 40, right = 44;
@@ -40,12 +40,18 @@ int main()
     ofs << g;
 
     std::ifstream ifs("grafite.bin", std::ios::in | std::ios::binary);
-    auto g2 = grafite::filter<grafite::ef_sux_vector>();
+    auto g2 = grafite::filter<grafite::ef_sdsl_vector>();
     ifs >> g2;
 
     result = g2.query(left, right);
     std::cout << "Query result: " << result << std::endl;
     std::cout << "Size: " << g2.size() << std::endl;
+
+    std::ostringstream oss;
+    oss << g2;
+    oss.seekp(0, std::ios::end);
+    auto offset = oss.tellp();
+    std::cout << "Size: " << offset << std::endl;
 
     std::remove("grafite.bin");
     return 0;

@@ -202,19 +202,7 @@ public:
         v.ef_rank.set_vector(&v.ef);
         return in;
     }
-
-//    void serialize(std::ostream &out) const
-//    {
-//        ef.serialize(out);
-//        ef_rank.serialize(out);
-//    }
-//
-//    void deserialize(std::istream &in)
-//    {
-//        ef.load(in);
-//        ef_rank.load(in);
-//        ef_rank.set_vector(&ef);
-//    }
+    
 };
 #endif
 
@@ -670,22 +658,6 @@ public:
         return sizeof(filter) + ds.size();
     }
 
-    /**
-     * @brief Serializes the Grafite range filter to a stream.
-     *
-     * @param out the output stream
-     */
-//    void serialize(std::ostream &out) const
-//    {
-//        out.write((char *) &first, sizeof(first));
-//        out.write((char *) &last, sizeof(last));
-//        out.write((char *) &n_items, sizeof(n_items));
-//        out.write((char *) &a, sizeof(a));
-//        out.write((char *) &b, sizeof(b));
-//        out.write((char *) &r, sizeof(r));
-//        ds.serialize(out);
-//    }
-
     friend std::ostream &operator<<(std::ostream &out, const filter &rf)
     {
         out.write(reinterpret_cast<const char *>(&rf.first), sizeof(rf.first));
@@ -710,21 +682,6 @@ public:
         return in;
     }
 
-//    /**
-//     * @brief Deserializes the Grafite range filter from a stream.
-//     *
-//     * @param in the input stream
-//     */
-//    void deserialize(std::istream &in)
-//    {
-//        in.read((char *) &first, sizeof(first));
-//        in.read((char *) &last, sizeof(last));
-//        in.read((char *) &n_items, sizeof(n_items));
-//        in.read((char *) &a, sizeof(a));
-//        in.read((char *) &b, sizeof(b));
-//        in.read((char *) &r, sizeof(r));
-//        ds.deserialize(in);
-//    }
 };
 
 template <class RangeEmptinessContainer, unsigned int default_bpk_overhead>
@@ -737,4 +694,4 @@ template <class RangeEmptinessContainer, unsigned int default_bpk_overhead>
 std::uniform_int_distribution<typename filter<RangeEmptinessContainer, default_bpk_overhead>::value_type>
         filter<RangeEmptinessContainer, default_bpk_overhead>::distr(1, std::numeric_limits<typename filter<RangeEmptinessContainer, default_bpk_overhead>::value_type>::max());
 
-}
+} // namespace grafite
