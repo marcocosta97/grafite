@@ -29,7 +29,7 @@
 /**
  * This file contains the benchmark for the REncoder filter.
  *
- * NOTE: the code has been adapted from Rencoder/src/run_workload.cpp
+ * NOTE: the code has been adapted from REncoder/src/run_workload.cpp
  */
 #define USE_SIMD
 #ifndef SET_VERSION
