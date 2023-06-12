@@ -398,8 +398,8 @@ private:
     static std::uniform_int_distribution<value_type> distr;
 
     RangeEmptinessDS ds; /* the container data structure used to check the emptiness of a range */
-    value_type first, last; /* the first and last element of the set */
     value_type a, b, r, n_items; /* the parameters of the data structure */
+    value_type first, last; /* the first and last element of the set */
 
     /**
      * @brief Hashes the input value using the formula: '(((a * (x / r) + b) % p) + x) % r'.
@@ -443,9 +443,8 @@ private:
      * @param end the iterator to the last element of the input range
      */
     template <class t_itr>
-    filter(const value_type r, const t_itr begin, const t_itr end)
-            : ds(), a(distr(gen)), b(distr(gen)), first(), last(),
-              n_items(std::distance(begin, end)), r(r)
+    filter(const value_type _r, const t_itr begin, const t_itr end)
+            : ds(), a(distr(gen)), b(distr(gen)), r(_r), n_items(std::distance(begin, end)), first(), last()
     {
         if (begin == end)
             return;
