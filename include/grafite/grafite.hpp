@@ -214,9 +214,9 @@ public:
  *
  * @tparam EliasFanoDS the Elias-Fano data structure used to store the buckets.
  */
-#ifdef SUCCINCT_LIB_SUX
+#if defined(SUCCINCT_LIB_SUX)
 template <class EliasFanoDS = ef_sux_vector>
-#elif SUCCINCT_LIB_SDSL
+#elif defined(SUCCINCT_LIB_SDSL)
 template <class EliasFanoDS = ef_sdsl_vector>
 #else
 template <class EliasFanoDS>
@@ -380,9 +380,9 @@ public:
  * @tparam default_bpk_overhead the default number of bits per key overhead used by the data structure used to
  *                              check the emptiness of a range.
  */
-#ifdef SUCCINCT_LIB_SUX
+#if defined(SUCCINCT_LIB_SUX)
 template <class RangeEmptinessDS = ef_sux_vector, unsigned int default_bpk_overhead = 2>
-#elif SUCCINCT_LIB_SDSL
+#elif defined(SUCCINCT_LIB_SDSL)
 template <class RangeEmptinessDS = ef_sdsl_vector, unsigned int default_bpk_overhead = 2>
 #else
 template <class RangeEmptinessDS, unsigned int default_bpk_overhead = 0>
