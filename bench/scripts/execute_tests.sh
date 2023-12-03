@@ -37,22 +37,22 @@ if ! python3 $SCRIPT_DIR_PATH/test.py $ARGS --test corr $WORKLOADS_PATH/corr_tes
   echo "[!!] corr_test test failed"
   exit 1
 fi
-echo "[!!] corr_test (figure 1, 5) test executed successfully"
+echo "[!!] corr_test (figure 1,3) test executed successfully"
 if ! python3 $SCRIPT_DIR_PATH/test.py $ARGS --test lemma $WORKLOADS_PATH/lemma_test $GRAFITE_BUILD_PATH ; then
   echo "[!!] lemma_test test failed"
   exit 1
 fi
-echo "[!!] lemma_test (figure 2) test executed successfully"
+echo "[!!] lemma_test test executed successfully"
 if ! python3 $SCRIPT_DIR_PATH/test.py $ARGS --test fpr $WORKLOADS_PATH/fpr_test $GRAFITE_BUILD_PATH ; then
   echo "[!!] fpr_test test failed"
   exit 1
 fi
-echo "[!!] fpr_test (figure 3) test executed successfully"
+echo "[!!] fpr_test (figure 4,5) test executed successfully"
 if ! python3 $SCRIPT_DIR_PATH/test.py $ARGS --test fpr_real $WORKLOADS_PATH/fpr_real_test $GRAFITE_BUILD_PATH ; then
   echo "[!!] fpr_real_test test failed"
   exit 1
 fi
-echo "[!!] fpr_real_test (figure 4) test executed successfully"
+echo "[!!] fpr_real_test (figure 4,5) test executed successfully"
 if ! python3 $SCRIPT_DIR_PATH/test.py $ARGS --test true $WORKLOADS_PATH/true_test $GRAFITE_BUILD_PATH ; then
   echo "[!!] query_time_test test failed"
   exit 1
