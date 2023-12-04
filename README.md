@@ -4,6 +4,11 @@
 queries using optimal space and time. It provides strong guarantees on the expected false positive rate under any kind
 of workloads.</p>
 
+<p align="center">
+    <a href="https://arxiv.org/abs/2311.15380">Paper</a>
+    | <a href="http://acube.di.unipi.it">A³ Lab</a>
+</p>
+
 ## Quickstart
 
 This is a header-only library. It does not need to be installed. Just clone the repo with
@@ -79,3 +84,16 @@ the tests in the paper.
 ## License
 
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details.
+
+If you use the library please cite the following paper:
+
+> Costa, Marco, Paolo Ferragina, and Giorgio Vinciguerra. Grafite: Taming Adversarial Queries with Optimal Range Filters. Proceedings of the ACM on Management of Data, 2836-6573, 2024.
+
+```tex
+@article{Costa:2024grafite,
+  author = {Costa, Marco and Ferragina, Paolo and Vinciguerra, Giorgio},
+  journal = {Proceedings of the ACM on Management of Data},
+  issn = {2836-6573},
+  title = {Grafite: Taming Adversarial Queries with Optimal Range Filters},
+  year = {2024}}
+```
