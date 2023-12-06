@@ -85,6 +85,7 @@ the tests in the paper.
 
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details.
 
+<!---
 If you use the library please cite the following paper:
 
 > Costa, Marco, Paolo Ferragina, and Giorgio Vinciguerra. Grafite: Taming Adversarial Queries with Optimal Range Filters. Proceedings of the ACM on Management of Data, 2836-6573, 2024.
@@ -97,3 +98,4 @@ If you use the library please cite the following paper:
   title = {Grafite: Taming Adversarial Queries with Optimal Range Filters},
   year = {2024}}
 ```
+--->
