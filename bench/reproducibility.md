@@ -57,7 +57,7 @@ The results will be in the `results` subfolder.
 
 Note that the experiments will take a long time to complete.
 
-Finally, to generate the figures simply copy the `grafite/scripts/graphs.ipynb` notebook in the `paper_results` folder and run it, 
+Finally, to generate the figures simply copy the `grafite/bench/scripts/graphs.ipynb` notebook in the `paper_results` folder and run it, 
 the figures will be saved in the `figures` subfolder as pdf files.
 
 At the end of the process, the `paper_results` folder will have the following structure:
