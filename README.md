@@ -5,7 +5,7 @@ queries using optimal space and time. It provides strong guarantees on the expec
 of workloads.</p>
 
 <p align="center">
-    <a href="https://arxiv.org/abs/2311.15380">Paper</a>
+    <a href="https://dl.acm.org/doi/abs/10.1145/3639258">Paper</a>
     | <a href="http://acube.di.unipi.it">A³ Lab</a>
 </p>
 
@@ -85,17 +85,19 @@ the tests in the paper.
 
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details.
 
-<!---
 If you use the library please cite the following paper:
 
-> Costa, Marco, Paolo Ferragina, and Giorgio Vinciguerra. Grafite: Taming Adversarial Queries with Optimal Range Filters. Proceedings of the ACM on Management of Data, 2836-6573, 2024.
+> Costa, Marco, Paolo Ferragina, and Giorgio Vinciguerra. "Grafite: Taming Adversarial Queries with Optimal Range Filters." Proceedings of the ACM on Management of Data 2.1 (2024): 1-23.
 
 ```tex
-@article{Costa:2024grafite,
-  author = {Costa, Marco and Ferragina, Paolo and Vinciguerra, Giorgio},
-  journal = {Proceedings of the ACM on Management of Data},
-  issn = {2836-6573},
-  title = {Grafite: Taming Adversarial Queries with Optimal Range Filters},
-  year = {2024}}
+@article{costa2024grafite,
+  title={Grafite: Taming Adversarial Queries with Optimal Range Filters},
+  author={Costa, Marco and Ferragina, Paolo and Vinciguerra, Giorgio},
+  journal={Proceedings of the ACM on Management of Data},
+  volume={2},
+  number={1},
+  pages={1--23},
+  year={2024},
+  publisher={ACM New York, NY, USA}
+}
 ```
---->
