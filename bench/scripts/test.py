@@ -14,7 +14,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import os, argparse
+import os, argparse, sys
 import shutil
 import numpy as np
 from pathlib import Path
@@ -105,10 +105,11 @@ def bulk_execute(path_test_base, incremental_test=False):
     if incremental_test:
         sorted_dirs = sorted(os.listdir(path_output_base.parent), reverse=True)
         if len(sorted_dirs) < 2:
-            raise FileNotFoundError(
-                "error, cannot find a directory for incremental testing")
-        path_old_test_base = Path(sorted_dirs[1])
-        print(path_old_test_base)
+            print('cannot find a directory for incremental testing, moving to base testing')
+            incremental_test = False
+        else:
+            path_old_test_base = Path(sorted_dirs[1])
+            print(path_old_test_base)
 
     for dataset_name in test_to_execute:
         path_dataset = Path(f'{path_output_base}/{dataset_name}')
@@ -242,3 +243,5 @@ if __name__ == "__main__":
     except Exception as e:
         print(f'received exception: {str(e)}, removing output dir and closing')
         shutil.rmtree(path_output_base)
+        sys.exit(1)
+    pass

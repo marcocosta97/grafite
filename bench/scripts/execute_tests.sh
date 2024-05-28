@@ -25,8 +25,9 @@ fi
 GRAFITE_BUILD_PATH=$(realpath $1)
 WORKLOADS_PATH=$(realpath $2)
 
-ARGS="--numa --membind 0 --physcpubind 16 -i" # uncomment to run with numa
-# ARGS="" # comment to run without numa
+
+# ARGS="--numa --membind 0 --physcpubind 16" # uncomment to run with numa 
+ARGS="" # uncomment to run without numa
 
 SCRIPT_DIR_PATH=$(dirname -- "$( readlink -f -- "$0"; )")
 
