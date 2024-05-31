@@ -59,13 +59,13 @@ inline size_t size_surf(surf::SuRF &f)
 
 int main(int argc, char const *argv[])
 {
-    auto parser = init_parser("bench-surf");
-
+    argparse::ArgumentParser parser("bench-surf");
+    init_parser(parser);
     try
     {
         parser.parse_args(argc, argv);
     }
-    catch (const std::runtime_error &err)
+    catch (const std::exception& err)
     {
         std::cerr << err.what() << std::endl;
         std::cerr << parser;

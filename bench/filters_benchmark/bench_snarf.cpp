@@ -47,12 +47,13 @@ inline size_t size_snarf(snarf_updatable_gcs<value_type> &f)
 
 int main(int argc, char const *argv[])
 {
-    auto parser = init_parser("bench-snarf");
+    argparse::ArgumentParser parser("bench-snarf");
+    init_parser(parser);
     try
     {
         parser.parse_args(argc, argv);
     }
-    catch (const std::runtime_error &err)
+    catch (const std::exception& err)
     {
         std::cerr << err.what() << std::endl;
         std::cerr << parser;

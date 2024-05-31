@@ -158,11 +158,12 @@ inline size_t size_rencoder(RENCODER &f) {
 }
 
 int main(int argc, char const *argv[]) {
-    auto parser = init_parser("bench-rencoder");
+    argparse::ArgumentParser parser("bench-rencoder");
+    init_parser(parser);
     try {
         parser.parse_args(argc, argv);
     }
-    catch (const std::runtime_error &err) {
+    catch (const std::exception& err) {
         std::cerr << err.what() << std::endl;
         std::cerr << parser;
         std::exit(1);

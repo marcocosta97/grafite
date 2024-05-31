@@ -48,7 +48,8 @@ inline size_t size_grafite(const grafite::filter<REContainer> &f)
 
 int main(int argc, char const *argv[])
 {
-    auto parser = init_parser("bench-grafite");
+    argparse::ArgumentParser parser("bench-grafite");
+    init_parser(parser);
     parser.add_argument("--ds")
         .nargs(1)
         .required()
@@ -58,7 +59,7 @@ int main(int argc, char const *argv[])
     {
         parser.parse_args(argc, argv);
     }
-    catch (const std::runtime_error &err)
+    catch (const std::exception& err)
     {
         std::cerr << err.what() << std::endl;
         std::cerr << parser;

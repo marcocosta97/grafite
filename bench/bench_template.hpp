@@ -75,10 +75,8 @@ void experiment(InitFun init_f, RangeFun range_f, SizeFun size_f, const double p
     std::cout << "[+] test executed successfully, printing stats and closing." << std::endl;
 }
 
-argparse::ArgumentParser init_parser(const std::string &name)
+void init_parser(argparse::ArgumentParser &parser)
 {
-    argparse::ArgumentParser parser(name);
-
     parser.add_argument("arg")
             .help("the main parameter of the ds (typically desired bpk o #suffix bits)")
             .scan<'g', double>();
@@ -99,9 +97,6 @@ argparse::ArgumentParser init_parser(const std::string &name)
             .help("limits the maximum number of queries")
             .nargs(1)
             .scan<'i', int>();
-
-
-    return parser;
 }
 
 std::tuple<InputKeys<uint64_t>, Workload<uint64_t>, double> read_parser_arguments(argparse::ArgumentParser &parser)

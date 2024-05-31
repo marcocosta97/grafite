@@ -76,13 +76,13 @@ inline size_t size_rosetta(DstFilter<BloomFilter<>> &f)
 
 int main(int argc, char const *argv[])
 {
-    auto parser = init_parser("bench-rosetta");
-
+    argparse::ArgumentParser parser("bench-rosetta");
+    init_parser(parser);
     try
     {
         parser.parse_args(argc, argv);
     }
-    catch (const std::runtime_error &err)
+    catch (const std::exception& err)
     {
         std::cerr << err.what() << std::endl;
         std::cerr << parser;

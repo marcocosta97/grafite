@@ -88,7 +88,7 @@ std::vector<KeyType> read_data_binary(const std::string &filename, bool check_so
         in.read((char *) data.data(), size * sizeof(KeyType));
     }
     catch (std::ios_base::failure &e) {
-        std::cerr << "Could not read the file. " << e.what() << std::endl;
+        std::cerr << "Could not read the file: " << filename << ". " << e.what() << std::endl;
         exit(1);
     }
     if (check_sorted && !std::is_sorted(data.begin(), data.end())) {
