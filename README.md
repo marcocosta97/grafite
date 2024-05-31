@@ -60,7 +60,7 @@ g++ examples/simple.cpp -std=c++17 -I./include -I./lib/sux -DSUCCINCT_LIB_SUX -o
 Other than the `grafite::filter` class in the example above, this library provides the following classes:
 
 - `grafite::bucket` an heuristic range filter which provides very fast lookups in small space without any guarantee on the false positive rate.
-- `grafite::ef_sux_vector` a wrapper for the Elias-Fano implementation of the [sux](https://sux.di.unimi.it) library. This implementation is used by default from Grafite.
+- `grafite::ef_sux_vector` a wrapper for the Elias-Fano implementation of the [sux](https://sux.di.unimi.it) library. _This implementation is used as default for Grafite_.
 - `grafite::ef_sdsl_vector` a wrapper for the Elias-Fano implementation of the [sdsl](https://github.com/simongog/sdsl-lite) library.
 
 ## Compile the tests and the benchmarks
