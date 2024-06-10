@@ -9,6 +9,9 @@ of workloads.</p>
     | <a href="http://acube.di.unipi.it">A³ Lab</a>
 </p>
 
+<div align="center">
+<a href="https://github.com/marcocosta97/grafite/actions/workflows/build.yml"><img src="https://github.com/marcocosta97/grafite/actions/workflows/build.yml/badge.svg"></a>
+</div>
 ## Quickstart
 
 This is a header-only library. It does not need to be installed. Just clone the repo with
