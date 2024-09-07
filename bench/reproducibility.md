@@ -11,7 +11,7 @@ The following software is required to reproduce the experiments of the paper:
 - gcc-11 (or later)
 - Boost 1.67.0 (or later)
 - Git 2.13 (or later)
-- Python 3.7 (or later)
+- Python 3.8 (or later)
   - Jupyter Notebook 6.0.3 (or later)
   - Matplotlib 3.2.1 (or later)
   - Numpy 1.18.2 (or later)
@@ -21,8 +21,9 @@ The following software is required to reproduce the experiments of the paper:
   - wget 1.19.4 (or later)
   - zsdt 0.0.1 (or later)
   - md5sum 8.28 (or later)
+- Latex full (for generating the plots)
 
-We advise to use a Linux machine with at least 32GB of RAM.
+We advise to use a Linux machine with at least 64GB of RAM.
 
 ## Building
 
