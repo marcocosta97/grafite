@@ -1,3 +1,6 @@
+>[!NOTE]
+>If you prefer to run these experiments automatically via Docker, check out [marcocosta97/grafite-experiments](https://github.com/marcocosta97/grafite-experiments/tree/main).
+
 # Reproducibility
 
 ## Introduction
@@ -6,7 +9,7 @@ This document describes how to reproduce the results of the paper "Grafite: Tami
 
 ## Requirements
 
-The following software is required to reproduce the experiments of the paper:
+The following software is required to reproduce the experiments of the paper, and must be installed on the machine:
 
 - gcc-11 (or later)
 - Boost 1.67.0 (or later)
